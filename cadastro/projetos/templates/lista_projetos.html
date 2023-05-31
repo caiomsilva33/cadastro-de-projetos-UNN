@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Uninorte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+        }
+      
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+      
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+      
+        .logo img {
+            width: 200px;
+            height: 100px;
+            background-color: orange;
+        }
+      
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f57c00; /* Cor laranja */
+            color: #fff;
+            border: none;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+      
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+      
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+      
+        th {
+            background-color: #f57c00; /* Cor laranja */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <header>
+        <div class="logo">
+            <img src="{% static 'uninorte_logo.png' %}" alt="Logo Uninorte">
+        </div>          
+        <h1>Projetos Uninorte - Manaus</h1>
+    </header>
+
+    <main>
+        <h1>Lista de Projetos</h1>
+        <table>
+            <tr>
+                <th>Nome do Projeto</th>
+                <th>Descrição do Projeto</th>
+                <th>Integrantes do Projeto</th>
+                <th>Professor(a) Responsável</th>
+                <th>Data de Início</th>
+            </tr>
+            {% for projeto in projetos %}
+            <tr>
+                <td>{{ projeto.nome }}</td>
+                <td>{{ projeto.descricao }}</td>
+                <td>{{ projeto.integrantes }}</td>
+                <td>{{ projeto.responsavel }}</td>
+                <td>{{ projeto.data_inicio }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Meu Projeto. Todos os direitos reservados.</p>
+    </footer>
+    </center>
+</body>
+</html>
